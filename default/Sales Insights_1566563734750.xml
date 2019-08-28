@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2019.2.0.1</annotation>
-    <annotation name="version">18</annotation>
+    <annotation name="version">15</annotation>
     <annotation name="engineId">53d49296-e7d1-4a35-5f49-5621175219d9</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Aug 28, 2019 at 10:58am (BST)</annotation>
+    <annotation name="publishDate">Published on Aug 23, 2019 at 1:34pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>Sales Insights</caption>
@@ -6310,13 +6310,13 @@
             <columns>1</columns>
           </properties>
         </attribute-key>
-        <attribute-key id="7ee63bc2-7141-431f-b1e8-540cfa5e82a8">
+        <attribute-key id="c7395a7f-8a25-4d2a-45a4-c7a88ab07b81">
           <properties>
             <visible>true</visible>
             <columns>1</columns>
           </properties>
         </attribute-key>
-        <attribute-key id="152036dd-24d4-45a5-a401-7d4de503ff82">
+        <attribute-key id="7ee63bc2-7141-431f-b1e8-540cfa5e82a8">
           <properties>
             <visible>true</visible>
             <columns>1</columns>
@@ -6363,7 +6363,7 @@
             <description>Product Style</description>
           </properties>
         </keyed-attribute>
-        <keyed-attribute id="c58b025c-f0d4-483f-9ac8-ef687b121625" key-ref="152036dd-24d4-45a5-a401-7d4de503ff82" name="Weight">
+        <keyed-attribute id="68b99255-22d1-4f6d-67fa-c8b3fea92ce8" key-ref="c7395a7f-8a25-4d2a-45a4-c7a88ab07b81" name="Weight">
           <properties>
             <caption>Weight</caption>
             <visible>true</visible>
@@ -6618,20 +6618,21 @@
             </level>
           </hierarchy>
         </dimension>
-        <dimension id="9ddeda7d-68ab-4d30-9805-9d494e65e3c6" name="Weight">
+        <dimension id="b45bc2db-a427-4219-7450-2f1acc60aa3a" name="Weight">
           <properties>
             <visible>true</visible>
           </properties>
-          <hierarchy id="a0f531ca-10fa-44e8-a848-83cda7f7b504" name="Weight">
+          <hierarchy id="7ecd6c42-5b00-4814-5f3b-682e7cd7fdc5" name="Weight">
             <properties>
               <caption>Weight</caption>
               <visible>true</visible>
-              <filter-empty>Always</filter-empty>
+              <folder>Product Attributes</folder>
+              <filter-empty>Yes</filter-empty>
               <default-member>
                 <all-member></all-member>
               </default-member>
             </properties>
-            <level primary-attribute="c58b025c-f0d4-483f-9ac8-ef687b121625">
+            <level primary-attribute="68b99255-22d1-4f6d-67fa-c8b3fea92ce8">
               <properties>
                 <unique-in-parent>false</unique-in-parent>
                 <visible>true</visible>
@@ -6720,6 +6721,9 @@
             <key-ref id="fcbf6329-8833-448f-8bac-78cc3f1ffd7c" unique="false" complete="false">
               <column>customerkey</column>
             </key-ref>
+            <key-ref id="c7395a7f-8a25-4d2a-45a4-c7a88ab07b81" unique="false" complete="true">
+              <column>weight</column>
+            </key-ref>
             <key-ref id="b2630413-63ea-41cc-9390-65a5e0b86ac6" unique="false" complete="false">
               <column>salesorderlinenumber</column>
               <column>salesordernumber</column>
@@ -6776,9 +6780,6 @@
               </ref-path>
               <column>shipdatekey</column>
             </key-ref>
-            <key-ref id="152036dd-24d4-45a5-a401-7d4de503ff82" unique="false" complete="true">
-              <column>weight</column>
-            </key-ref>
             <attribute-ref id="9ed344ae-69b0-4e15-5d52-8dc090c1ffc9" complete="true">
               <column>Calculated Tax</column>
             </attribute-ref>
@@ -6797,6 +6798,9 @@
             <attribute-ref id="0c63e9e5-7ba7-4a2a-5f2c-3d827f28414c" complete="true">
               <column>style</column>
             </attribute-ref>
+            <attribute-ref id="68b99255-22d1-4f6d-67fa-c8b3fea92ce8" complete="true">
+              <column>weight</column>
+            </attribute-ref>
             <attribute-ref id="3e00c6cb-0846-4911-8581-a7a03cb34f92" complete="true">
               <column>orderdatekey</column>
             </attribute-ref>
@@ -6814,9 +6818,6 @@
             </attribute-ref>
             <attribute-ref id="d67cfce0-4b71-4b88-a8f5-f346ba0ad3db" complete="true">
               <column>taxamt</column>
-            </attribute-ref>
-            <attribute-ref id="c58b025c-f0d4-483f-9ac8-ef687b121625" complete="true">
-              <column>weight</column>
             </attribute-ref>
           </logical>
         </data-set-ref>
