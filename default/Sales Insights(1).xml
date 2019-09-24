@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2019.2.0.1</annotation>
-    <annotation name="version">6</annotation>
+    <annotation name="version">7</annotation>
     <annotation name="engineId">1d5b94a0-e036-4d31-55fe-f26e55f876d0</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Sep 24, 2019 at 11:28am (BST)</annotation>
+    <annotation name="publishDate">Published on Sep 24, 2019 at 11:42am (BST)</annotation>
   </annotations>
   <properties>
     <caption>Simple - Sales Insights</caption>
