@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2020.2.1.1602</annotation>
-    <annotation name="version">6</annotation>
+    <annotation name="version">7</annotation>
     <annotation name="engineId">69790d65-021b-4e09-7151-014bbcb6c00e</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Jun 12, 2020 at 6:54pm (BST)</annotation>
+    <annotation name="publishDate">Published on Jun 12, 2020 at 8:39pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>PostgreSQL - Sales Insights</caption>
@@ -723,6 +723,12 @@
       </properties>
     </attribute-key>
     <attribute-key id="98c7155e-936c-4706-b8f3-f2fa94a76047">
+      <properties>
+        <visible>true</visible>
+        <columns>1</columns>
+      </properties>
+    </attribute-key>
+    <attribute-key id="4225841e-5f40-4ff9-b2b2-dcc052f1023d">
       <properties>
         <visible>true</visible>
         <columns>1</columns>
@@ -1765,6 +1771,21 @@
         </ordering>
       </properties>
     </keyed-attribute>
+    <keyed-attribute id="733c5d7b-ca0a-4edf-7628-074f5edde1c8" key-ref="4225841e-5f40-4ff9-b2b2-dcc052f1023d" name="Country Security_user_id">
+      <properties>
+        <caption>Country Security</caption>
+        <visible>false</visible>
+        <type>
+          <enum></enum>
+        </type>
+        <ordering>
+          <sort-key>
+            <order>ascending</order>
+            <value></value>
+          </sort-key>
+        </ordering>
+      </properties>
+    </keyed-attribute>
     <attribute id="9f91005e-58c5-43b4-6df0-f6952c56b251" name="List Price">
       <properties>
         <caption>List Price</caption>
@@ -1775,6 +1796,23 @@
             <default-aggregation>SUM</default-aggregation>
           </measure>
         </type>
+      </properties>
+    </attribute>
+    <attribute id="b46ccb7e-59e2-4bb7-5ec1-295613a0d2ba" name="Country Security_fks">
+      <properties>
+        <caption>Country Security_fks</caption>
+        <visible>false</visible>
+        <type>
+          <enum></enum>
+        </type>
+        <dynamic-constraint>
+          <user-constraint enabled="true"></user-constraint>
+          <properties>
+            <scope>
+              <all></all>
+            </scope>
+          </properties>
+        </dynamic-constraint>
       </properties>
     </attribute>
   </attributes>
@@ -1893,6 +1931,11 @@
             <unique-in-parent>false</unique-in-parent>
             <visible>true</visible>
           </properties>
+          <keyed-attribute-ref attribute-id="733c5d7b-ca0a-4edf-7628-074f5edde1c8" ref-id="dd3fa2dc-0579-4326-9c13-fb336d397d85">
+            <properties>
+              <multiplicity></multiplicity>
+            </properties>
+          </keyed-attribute-ref>
         </level>
         <level primary-attribute="5eb5cc5d-535b-4da6-4872-d40dde5ab79d">
           <properties>
@@ -2323,6 +2366,34 @@
               <multiplicity></multiplicity>
             </properties>
           </keyed-attribute-ref>
+        </level>
+      </hierarchy>
+    </dimension>
+    <dimension id="80f25f7d-19f5-4e4f-4d4e-c8430e3bfd66" name="Country Security">
+      <properties>
+        <visible>false</visible>
+      </properties>
+      <hierarchy id="0fa8be14-18c3-4af3-8b1c-5b03852c96e7" name="Country Security">
+        <properties>
+          <caption>Country Security</caption>
+          <visible>true</visible>
+          <filter-empty>Always</filter-empty>
+          <default-member>
+            <all-member></all-member>
+          </default-member>
+        </properties>
+        <level primary-attribute="733c5d7b-ca0a-4edf-7628-074f5edde1c8">
+          <properties>
+            <unique-in-parent>false</unique-in-parent>
+            <visible>true</visible>
+          </properties>
+          <attribute-ref attribute-id="b46ccb7e-59e2-4bb7-5ec1-295613a0d2ba">
+            <properties>
+              <multiplicity>
+                <multi-valued>true</multi-valued>
+              </multiplicity>
+            </properties>
+          </attribute-ref>
         </level>
       </hierarchy>
     </dimension>
@@ -3165,6 +3236,41 @@
         </attribute-ref>
       </logical>
     </data-set>
+    <data-set id="82409a37-aa41-4838-7653-0ebd8709ddbc" name="country_map">
+      <properties>
+        <allow-aggregates>true</allow-aggregates>
+        <aggregate-locality>
+          <managed></managed>
+        </aggregate-locality>
+      </properties>
+      <physical>
+        <connection id="PostgreSQL"></connection>
+        <table>
+          <schema>atscale_data</schema>
+          <name>country_map</name>
+        </table>
+        <immutable>false</immutable>
+        <column>
+          <name>country</name>
+          <type>String</type>
+        </column>
+        <column>
+          <name>username</name>
+          <type>String</type>
+        </column>
+      </physical>
+      <logical>
+        <key-ref id="4225841e-5f40-4ff9-b2b2-dcc052f1023d" unique="false" complete="true">
+          <column>country</column>
+        </key-ref>
+        <attribute-ref id="733c5d7b-ca0a-4edf-7628-074f5edde1c8" complete="true">
+          <column>country</column>
+        </attribute-ref>
+        <attribute-ref id="b46ccb7e-59e2-4bb7-5ec1-295613a0d2ba" complete="true">
+          <column>username</column>
+        </attribute-ref>
+      </logical>
+    </data-set>
     <data-set id="599fb304-baa5-48d9-6730-18127e5cc23c" name="dim_date_day">
       <properties>
         <allow-aggregates>true</allow-aggregates>
@@ -3597,6 +3703,12 @@
           <column>country</column>
         </key-ref>
         <key-ref id="7e509dab-7781-4d7a-afca-0b48384468f0" unique="false" complete="true">
+          <column>country</column>
+        </key-ref>
+        <key-ref id="4225841e-5f40-4ff9-b2b2-dcc052f1023d" unique="false" complete="false">
+          <ref-path>
+            <ref id="dd3fa2dc-0579-4326-9c13-fb336d397d85"></ref>
+          </ref-path>
           <column>country</column>
         </key-ref>
         <attribute-ref id="ad129531-b5bc-4ba9-5a5f-292c36c47085" complete="true">
