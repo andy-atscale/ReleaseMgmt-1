@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2020.2.1.1602</annotation>
-    <annotation name="version">9</annotation>
-    <annotation name="engineId">53d49296-e7d1-4a35-5f49-5621175219d9</annotation>
+    <annotation name="version">3</annotation>
+    <annotation name="engineId">69790d65-021b-4e09-7151-014bbcb6c00e</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on May 12, 2020 at 5:21pm (BST)</annotation>
+    <annotation name="publishDate">Published on Jun 12, 2020 at 6:46pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>PostgreSQL - Sales Insights</caption>
@@ -723,12 +723,6 @@
       </properties>
     </attribute-key>
     <attribute-key id="98c7155e-936c-4706-b8f3-f2fa94a76047">
-      <properties>
-        <visible>true</visible>
-        <columns>1</columns>
-      </properties>
-    </attribute-key>
-    <attribute-key id="aed7a5ab-9c4e-4670-b8f7-9732bbeb3ea9">
       <properties>
         <visible>true</visible>
         <columns>1</columns>
@@ -1771,21 +1765,6 @@
         </ordering>
       </properties>
     </keyed-attribute>
-    <keyed-attribute id="7d5d1342-21d2-4a21-6e2a-d4b40299bc15" key-ref="aed7a5ab-9c4e-4670-b8f7-9732bbeb3ea9" name="Dim Currency">
-      <properties>
-        <caption>Dim Currency</caption>
-        <visible>true</visible>
-        <type>
-          <enum></enum>
-        </type>
-        <ordering>
-          <sort-key>
-            <order>ascending</order>
-            <value></value>
-          </sort-key>
-        </ordering>
-      </properties>
-    </keyed-attribute>
     <attribute id="9f91005e-58c5-43b4-6df0-f6952c56b251" name="List Price">
       <properties>
         <caption>List Price</caption>
@@ -2344,28 +2323,6 @@
               <multiplicity></multiplicity>
             </properties>
           </keyed-attribute-ref>
-        </level>
-      </hierarchy>
-    </dimension>
-    <dimension id="465433f0-a524-479f-6c6f-fd2415e0bd8c" name="Dim Currency">
-      <properties>
-        <visible>true</visible>
-        <dimension-type>Other</dimension-type>
-      </properties>
-      <hierarchy id="1e1ce906-2999-4bdd-8f4e-5863121e2606" name="Dim Currency">
-        <properties>
-          <caption>Dim Currency</caption>
-          <visible>true</visible>
-          <filter-empty>Always</filter-empty>
-          <default-member>
-            <all-member></all-member>
-          </default-member>
-        </properties>
-        <level primary-attribute="7d5d1342-21d2-4a21-6e2a-d4b40299bc15">
-          <properties>
-            <unique-in-parent>false</unique-in-parent>
-            <visible>true</visible>
-          </properties>
         </level>
       </hierarchy>
     </dimension>
@@ -3763,14 +3720,7 @@
           <type>String</type>
         </column>
       </physical>
-      <logical>
-        <key-ref id="aed7a5ab-9c4e-4670-b8f7-9732bbeb3ea9" unique="false" complete="true">
-          <column>currencykey</column>
-        </key-ref>
-        <attribute-ref id="7d5d1342-21d2-4a21-6e2a-d4b40299bc15" complete="true">
-          <column>currencyname</column>
-        </attribute-ref>
-      </logical>
+      <logical></logical>
     </data-set>
     <data-set id="f277c092-0a6d-47cf-4d14-276032951933" name="dimcustomer">
       <properties>
@@ -6322,8 +6272,9 @@
     </calculated-member>
   </calculated-members>
   <cubes>
-    <cube id="b89a2fb7-74f4-4828-706e-70f7186e10a0" name="PostgreSQL - Internet Sales Cube">
+    <cube id="e7d499d6-8f4b-41a7-613d-cf3b47a62908" name="Internet Sales Cube">
       <properties>
+        <name>Internet Sales Cube</name>
         <caption>PostgreSQL - Internet Sales Cube</caption>
         <visible>true</visible>
       </properties>
@@ -6828,9 +6779,6 @@
               </ref-path>
               <column>shipdatekey</column>
             </key-ref>
-            <key-ref id="aed7a5ab-9c4e-4670-b8f7-9732bbeb3ea9" unique="false" complete="false">
-              <column>currencykey</column>
-            </key-ref>
             <attribute-ref id="9ed344ae-69b0-4e15-5d52-8dc090c1ffc9" complete="true">
               <column>Calculated Tax</column>
             </attribute-ref>
@@ -6870,17 +6818,6 @@
             <attribute-ref id="d67cfce0-4b71-4b88-a8f5-f346ba0ad3db" complete="true">
               <column>taxamt</column>
             </attribute-ref>
-          </logical>
-        </data-set-ref>
-        <data-set-ref id="2bd5a740-426a-41a4-5a0b-03b337b0a6dd">
-          <properties>
-            <allow-aggregates>true</allow-aggregates>
-            <create-hinted-aggregate>false</create-hinted-aggregate>
-          </properties>
-          <logical>
-            <key-ref id="aed7a5ab-9c4e-4670-b8f7-9732bbeb3ea9" unique="false" complete="false">
-              <column>currencykey</column>
-            </key-ref>
           </logical>
         </data-set-ref>
       </data-sets>
