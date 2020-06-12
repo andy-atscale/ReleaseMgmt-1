@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2020.2.1.1602</annotation>
-    <annotation name="version">5</annotation>
+    <annotation name="version">6</annotation>
     <annotation name="engineId">69790d65-021b-4e09-7151-014bbcb6c00e</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Jun 12, 2020 at 6:53pm (BST)</annotation>
+    <annotation name="publishDate">Published on Jun 12, 2020 at 6:54pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>PostgreSQL - Sales Insights</caption>
@@ -4441,10 +4441,6 @@
               <name>style</name>
               <type>String</type>
             </column>
-            <column>
-              <name>weight</name>
-              <type>String</type>
-            </column>
           </columns>
         </map-column>
       </physical>
@@ -6309,12 +6305,6 @@
             <columns>1</columns>
           </properties>
         </attribute-key>
-        <attribute-key id="c7395a7f-8a25-4d2a-45a4-c7a88ab07b81">
-          <properties>
-            <visible>true</visible>
-            <columns>1</columns>
-          </properties>
-        </attribute-key>
         <attribute-key id="7ee63bc2-7141-431f-b1e8-540cfa5e82a8">
           <properties>
             <visible>true</visible>
@@ -6360,15 +6350,6 @@
               </sort-key>
             </ordering>
             <description>Product Style</description>
-          </properties>
-        </keyed-attribute>
-        <keyed-attribute id="68b99255-22d1-4f6d-67fa-c8b3fea92ce8" key-ref="c7395a7f-8a25-4d2a-45a4-c7a88ab07b81" name="Weight">
-          <properties>
-            <caption>Weight</caption>
-            <visible>true</visible>
-            <type>
-              <enum></enum>
-            </type>
           </properties>
         </keyed-attribute>
         <attribute id="9ed344ae-69b0-4e15-5d52-8dc090c1ffc9" name="calculatedtax1">
@@ -6617,28 +6598,6 @@
             </level>
           </hierarchy>
         </dimension>
-        <dimension id="b45bc2db-a427-4219-7450-2f1acc60aa3a" name="Weight">
-          <properties>
-            <visible>true</visible>
-          </properties>
-          <hierarchy id="7ecd6c42-5b00-4814-5f3b-682e7cd7fdc5" name="Weight">
-            <properties>
-              <caption>Weight</caption>
-              <visible>true</visible>
-              <folder>Product Attributes</folder>
-              <filter-empty>Yes</filter-empty>
-              <default-member>
-                <all-member></all-member>
-              </default-member>
-            </properties>
-            <level primary-attribute="68b99255-22d1-4f6d-67fa-c8b3fea92ce8">
-              <properties>
-                <unique-in-parent>false</unique-in-parent>
-                <visible>true</visible>
-              </properties>
-            </level>
-          </hierarchy>
-        </dimension>
       </dimensions>
       <actions>
         <properties>
@@ -6720,9 +6679,6 @@
             <key-ref id="fcbf6329-8833-448f-8bac-78cc3f1ffd7c" unique="false" complete="false">
               <column>customerkey</column>
             </key-ref>
-            <key-ref id="c7395a7f-8a25-4d2a-45a4-c7a88ab07b81" unique="false" complete="true">
-              <column>weight</column>
-            </key-ref>
             <key-ref id="b2630413-63ea-41cc-9390-65a5e0b86ac6" unique="false" complete="false">
               <column>salesorderlinenumber</column>
               <column>salesordernumber</column>
@@ -6796,9 +6752,6 @@
             </attribute-ref>
             <attribute-ref id="0c63e9e5-7ba7-4a2a-5f2c-3d827f28414c" complete="true">
               <column>style</column>
-            </attribute-ref>
-            <attribute-ref id="68b99255-22d1-4f6d-67fa-c8b3fea92ce8" complete="true">
-              <column>weight</column>
             </attribute-ref>
             <attribute-ref id="3e00c6cb-0846-4911-8581-a7a03cb34f92" complete="true">
               <column>orderdatekey</column>
