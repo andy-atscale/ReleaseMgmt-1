@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2020.2.1.1602</annotation>
-    <annotation name="version">7</annotation>
+    <annotation name="version">8</annotation>
     <annotation name="engineId">69790d65-021b-4e09-7151-014bbcb6c00e</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Jun 12, 2020 at 8:39pm (BST)</annotation>
+    <annotation name="publishDate">Published on Jun 15, 2020 at 2:24pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>PostgreSQL - Sales Insights</caption>
