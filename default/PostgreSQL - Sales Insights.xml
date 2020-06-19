@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2020.2.1.1602</annotation>
-    <annotation name="version">8</annotation>
+    <annotation name="version">9</annotation>
     <annotation name="engineId">69790d65-021b-4e09-7151-014bbcb6c00e</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Jun 15, 2020 at 2:24pm (BST)</annotation>
+    <annotation name="publishDate">Published on Jun 19, 2020 at 3:35pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>PostgreSQL - Sales Insights</caption>
@@ -4553,6 +4553,10 @@
               <name>style</name>
               <type>String</type>
             </column>
+            <column>
+              <name>weight</name>
+              <type>String</type>
+            </column>
           </columns>
         </map-column>
       </physical>
@@ -7024,4 +7028,27 @@
       <aggregates></aggregates>
     </cube>
   </cubes>
+  <perspectives>
+    <perspective id="be22204a-d18f-4305-5992-b88402ee832e" name="test" cube-ref="e7d499d6-8f4b-41a7-613d-cf3b47a62908">
+      <flat-attributes></flat-attributes>
+      <flat-dimensions>
+        <flat-dimension-ref id="80065f85-6bdd-435e-6540-2c3a61430a56">
+          <properties>
+            <visible>true</visible>
+          </properties>
+          <flat-hierarchy-ref id="9bf44374-c106-4ab3-9c6a-d68474e9b25f">
+            <properties>
+              <visible>true</visible>
+            </properties>
+            <flat-level-ref primary-attribute="bf1855e0-1964-4380-70d7-791cf663bccb">
+              <properties>
+                <visible>false</visible>
+              </properties>
+            </flat-level-ref>
+          </flat-hierarchy-ref>
+        </flat-dimension-ref>
+      </flat-dimensions>
+      <calculated-members></calculated-members>
+    </perspective>
+  </perspectives>
 </schema>
