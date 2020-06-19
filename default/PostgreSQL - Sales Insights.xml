@@ -3,10 +3,10 @@
   <annotations>
     <annotation name="complete-fix">true</annotation>
     <annotation name="migrationVersion">2020.2.1.1602</annotation>
-    <annotation name="version">9</annotation>
+    <annotation name="version">10</annotation>
     <annotation name="engineId">69790d65-021b-4e09-7151-014bbcb6c00e</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Jun 19, 2020 at 3:35pm (BST)</annotation>
+    <annotation name="publishDate">Published on Jun 19, 2020 at 3:37pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>PostgreSQL - Sales Insights</caption>
@@ -6427,6 +6427,12 @@
             <columns>1</columns>
           </properties>
         </attribute-key>
+        <attribute-key id="16e6d31b-0bee-4615-a2cc-0118e0cd0dc4">
+          <properties>
+            <visible>true</visible>
+            <columns>1</columns>
+          </properties>
+        </attribute-key>
         <keyed-attribute id="0e162957-cb50-499d-5943-2af46cf103bb" key-ref="ce843510-a765-40d2-6529-dc8ab97303e0" name="Color">
           <properties>
             <caption>Color</caption>
@@ -6466,6 +6472,15 @@
               </sort-key>
             </ordering>
             <description>Product Style</description>
+          </properties>
+        </keyed-attribute>
+        <keyed-attribute id="ca03ac3d-dbfd-4b46-b2e7-32a37111152b" key-ref="16e6d31b-0bee-4615-a2cc-0118e0cd0dc4" name="Weight">
+          <properties>
+            <caption>Weight</caption>
+            <visible>true</visible>
+            <type>
+              <enum></enum>
+            </type>
           </properties>
         </keyed-attribute>
         <attribute id="9ed344ae-69b0-4e15-5d52-8dc090c1ffc9" name="calculatedtax1">
@@ -6714,6 +6729,27 @@
             </level>
           </hierarchy>
         </dimension>
+        <dimension id="7080c084-be63-47f0-9abf-47de0e9019a4" name="Weight">
+          <properties>
+            <visible>true</visible>
+          </properties>
+          <hierarchy id="9a9657b9-1ea9-4863-92a7-3421da8a9c88" name="Weight">
+            <properties>
+              <caption>Weight</caption>
+              <visible>true</visible>
+              <filter-empty>Always</filter-empty>
+              <default-member>
+                <all-member></all-member>
+              </default-member>
+            </properties>
+            <level primary-attribute="ca03ac3d-dbfd-4b46-b2e7-32a37111152b">
+              <properties>
+                <unique-in-parent>false</unique-in-parent>
+                <visible>true</visible>
+              </properties>
+            </level>
+          </hierarchy>
+        </dimension>
       </dimensions>
       <actions>
         <properties>
@@ -6851,6 +6887,9 @@
               </ref-path>
               <column>shipdatekey</column>
             </key-ref>
+            <key-ref id="16e6d31b-0bee-4615-a2cc-0118e0cd0dc4" unique="false" complete="true">
+              <column>weight</column>
+            </key-ref>
             <attribute-ref id="9ed344ae-69b0-4e15-5d52-8dc090c1ffc9" complete="true">
               <column>Calculated Tax</column>
             </attribute-ref>
@@ -6886,6 +6925,9 @@
             </attribute-ref>
             <attribute-ref id="d67cfce0-4b71-4b88-a8f5-f346ba0ad3db" complete="true">
               <column>taxamt</column>
+            </attribute-ref>
+            <attribute-ref id="ca03ac3d-dbfd-4b46-b2e7-32a37111152b" complete="true">
+              <column>weight</column>
             </attribute-ref>
           </logical>
         </data-set-ref>
