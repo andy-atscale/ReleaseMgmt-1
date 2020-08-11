@@ -2,15 +2,16 @@
 <schema xmlns="http://www.atscale.com/xsd/project_2_0" name="PostgreSQL - Sales Insights" version="2" xsi:schemaLocation="http://www.atscale.com/xsd/project_2_0 ../../../../../core/src/main/resources/com/atscale/engine/schema/project_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <annotations>
     <annotation name="complete-fix">true</annotation>
-    <annotation name="migrationVersion">2020.2.1.1602</annotation>
-    <annotation name="version">13</annotation>
+    <annotation name="migrationVersion">2020.3.0.1886</annotation>
+    <annotation name="version">14</annotation>
     <annotation name="engineId">69790d65-021b-4e09-7151-014bbcb6c00e</annotation>
     <annotation name="versionTag"></annotation>
-    <annotation name="publishDate">Published on Jul 14, 2020 at 10:22am (BST)</annotation>
+    <annotation name="publishDate">Published on Aug 11, 2020 at 8:14pm (BST)</annotation>
   </annotations>
   <properties>
     <caption>PostgreSQL - Sales Insights</caption>
     <visible>true</visible>
+    <aggressive-aggregate-promotion>false</aggressive-aggregate-promotion>
     <aggregate-prediction>
       <speculative-aggregates>false</speculative-aggregates>
     </aggregate-prediction>
@@ -1931,7 +1932,7 @@
             <unique-in-parent>false</unique-in-parent>
             <visible>true</visible>
           </properties>
-          <keyed-attribute-ref attribute-id="733c5d7b-ca0a-4edf-7628-074f5edde1c8" ref-id="dd3fa2dc-0579-4326-9c13-fb336d397d85">
+          <keyed-attribute-ref attribute-id="733c5d7b-ca0a-4edf-7628-074f5edde1c8" ref-id="a5886032-10e8-4c4c-b68f-282f92d419d3">
             <properties>
               <multiplicity></multiplicity>
             </properties>
@@ -3239,9 +3240,11 @@
     <data-set id="82409a37-aa41-4838-7653-0ebd8709ddbc" name="country_map">
       <properties>
         <allow-aggregates>true</allow-aggregates>
-        <aggregate-locality>
-          <managed></managed>
-        </aggregate-locality>
+        <aggregate-destinations>
+          <allow-local>true</allow-local>
+          <allow-peer>true</allow-peer>
+          <allow-preferred>true</allow-preferred>
+        </aggregate-destinations>
       </properties>
       <physical>
         <connection id="PostgreSQL"></connection>
@@ -3707,7 +3710,7 @@
         </key-ref>
         <key-ref id="4225841e-5f40-4ff9-b2b2-dcc052f1023d" unique="false" complete="false">
           <ref-path>
-            <ref id="dd3fa2dc-0579-4326-9c13-fb336d397d85"></ref>
+            <ref id="a5886032-10e8-4c4c-b68f-282f92d419d3"></ref>
           </ref-path>
           <column>country</column>
         </key-ref>
@@ -6669,6 +6672,7 @@
         </attribute>
       </attributes>
       <dimensions>
+        <dimension-ref id="80f25f7d-19f5-4e4f-4d4e-c8430e3bfd66"></dimension-ref>
         <dimension id="9f297854-1773-4206-6bf0-2d688fba8665" name="Color Dimension">
           <properties>
             <visible>true</visible>
